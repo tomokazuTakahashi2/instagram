@@ -16,10 +16,14 @@ class PostData: NSObject {
     var name: String?
     var caption: String?
     var date: Date?
+    
     var likes: [String] = []
+    //likeをされている
     var isLiked: Bool = false
-    var comments: [String] = []
-    var isComment: Bool = false
+    
+    //var commentName : [String] = []
+    var comments : [String] = []
+    
 
     
     init(snapshot: DataSnapshot, myId: String) {
@@ -35,33 +39,37 @@ class PostData: NSObject {
         
         self.name = valueDictionary["name"] as? String
         
+        
         self.caption = valueDictionary["caption"] as? String
         
         let time = valueDictionary["time"] as? String
         
         self.date = Date(timeIntervalSinceReferenceDate: TimeInterval(time!)!)
         
-        
+        //もし、valieDictionary["likes"]as? [String]がnilじゃなかったら、likesに代入する
         if let likes = valueDictionary["likes"] as? [String] {
             self.likes = likes
         }
-        
+        //self.likesを繰り返すことをlikeIdとする
         for likeId in self.likes {
+            //もし、likeIDがmyIDと等しい時、
             if likeId == myId {
+                //likeがすでにされている(=true)という事になる
                 self.isLiked = true
+                //であれば、繰り返しを抜ける
                 break
             }
         }
         
+//        //もし、valieDictionary["commentName"]as? [String]がnilじゃなかったら、commentNameに代入する
+//        if let commentName = valueDictionary["commentName"] as? [String]{
+//            self.commentName = commentName
+//        }
+        
+        
+        //もし、valieDictionary["comments"]as? [String]がnilじゃなかったら、commentsに代入する
         if let comments = valueDictionary["comments"] as? [String] {
             self.comments = comments
-        }
-        
-        for commentId in self.comments {
-            if commentId == myId {
-                self.isComment = true
-                break
-            }
         }
     
     }

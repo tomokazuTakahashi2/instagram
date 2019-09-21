@@ -88,7 +88,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-ZD-q7A">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-ZD-q7A">
                         <rect key="frame" x="20" y="410" width="451" height="65.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -139,7 +139,6 @@
                 <outlet property="captionLabel" destination="b60-4o-0im" id="zXr-Et-wP6"/>
                 <outlet property="commentButton" destination="qdR-oC-9tj" id="xfY-cz-O6n"/>
                 <outlet property="commentLabel" destination="aNH-ZD-q7A" id="PRi-QD-i85"/>
-                <outlet property="commentName" destination="Gt9-vy-knz" id="cfZ-1T-aL7"/>
                 <outlet property="dateLabel" destination="165-Dh-dgp" id="pwN-2t-Edf"/>
                 <outlet property="likeButton" destination="bSP-tU-GJV" id="jhc-yk-11j"/>
                 <outlet property="likeLabel" destination="F1k-Hy-Nmv" id="TEQ-wO-vdc"/>

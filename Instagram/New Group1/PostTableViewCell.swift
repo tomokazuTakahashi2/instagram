@@ -10,7 +10,7 @@ import UIKit
 import DOFavoriteButton
 
 
-class PostTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell{
     
     @IBOutlet weak var userProfilePic: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
@@ -18,7 +18,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel! 
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var commentName: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
     @IBOutlet weak var likeButton: DOFavoriteButton!
@@ -26,6 +25,8 @@ class PostTableViewCell: UITableViewCell {
     
     
     var postArray: [PostData] = []
+    
+ 
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,23 +36,30 @@ class PostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    
+//各部品にPostDataのデータを表示させる
     func setPostData(_ postData: PostData) {
-        //キャプションは”postDataの名前：postDataのキャプション”
+        
+        //captionLabelに表示するのは"postDataのname"と"postDataのcaption"である
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+        
         //日付
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let dateString = formatter.string(from: postData.date!)
         self.dateLabel.text = dateString
-        //イメージはpostDataのイメージ
+        
+        //postImageViewに表示するのはpostDataのimageである
         self.postImageView.image = postData.image
+        
         //いいねのカウント
+        //postData.likesをlikeNumberに代入する
         let likeNumber = postData.likes.count
+        //likeLabelに表示するのはlikeNumberである
         likeLabel.text = "\(likeNumber)"
         
+        //もし、すでにlikeされていたら、
         if postData.isLiked {
-            //もし「いいね」を押せば「like_exist」を表示
+            //「like_exist」を表示
             let buttonImage = UIImage(named: "like_exist")
             self.likeButton.setImage(buttonImage, for: .normal)
         } else {
@@ -60,28 +68,28 @@ class PostTableViewCell: UITableViewCell {
             self.likeButton.setImage(buttonImage, for: .normal)
         }
         
-        self.commentName.text = "\(postData.name!)"
+        //allCommentは最初は空である
+        var allComment = ""
         
-        if postData.isComment {
-            //もし「コメント」を押せば「入力文章」を表示
-            commentLabel.text = textField.text
-            
-        } else {
-            //でなければ「like_none」を表示
-            print("なし")
-            
+        //postData.commentsの中から要素をひとつずつ取り出すのを繰り返す、というのがcomment
+        for comment in postData.comments{
+        //comment + comment = allCommentである
+        allComment += comment
+        //commentLabelに表示するのはallComment（commentを足していったもの）である
+        self.commentLabel.text = allComment
+
         }
        
         }
         
     
 
-    
-    
-    func textFieldShouldReturn(_textField:UITextField)->Bool{
-        textField.resignFirstResponder()
-        return true
-    }
-    
-}
+//    textField.delegate = self
+//
+//    func textFieldShouldReturn(_textField:UITextField)->Bool{
+//        textField.resignFirstResponder()
+//        return true
+//    }
 
+
+}
