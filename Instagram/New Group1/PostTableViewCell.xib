@@ -88,8 +88,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-ZD-q7A">
-                        <rect key="frame" x="20" y="410" width="451" height="65.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-ZD-q7A">
+                        <rect key="frame" x="20" y="410" width="451" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="b60-4o-0im" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="0F7-pZ-3mg"/>
-                    <constraint firstAttribute="bottom" secondItem="aNH-ZD-q7A" secondAttribute="bottom" id="1Cm-f0-bDi"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aNH-ZD-q7A" secondAttribute="bottom" id="1Cm-f0-bDi"/>
                     <constraint firstItem="Gt9-vy-knz" firstAttribute="top" secondItem="bSP-tU-GJV" secondAttribute="bottom" constant="8" id="5hi-lF-L53"/>
                     <constraint firstItem="F1k-Hy-Nmv" firstAttribute="leading" secondItem="bSP-tU-GJV" secondAttribute="trailing" constant="8" id="6Oe-y9-3Q6"/>
                     <constraint firstAttribute="trailing" secondItem="aNH-ZD-q7A" secondAttribute="trailing" constant="20" id="AvZ-A5-P3e"/>

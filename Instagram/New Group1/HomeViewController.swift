@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,6 +26,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         
         // テーブルセルのタップを無効にする
         tableView.allowsSelection = false
@@ -227,9 +228,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //であれば、postData.commentsにtextをappend(追加)する
             postData.comments.append("\(displayName): \(text)\n")
         
-//            //postData.commentsを繰り返す
-//            for forComments in postData.comments {
-//            print(forComments)
+
+            
+              //キーボードを隠す
+//            cell.textField.delegate = self
+//
+//            func textFieldShouldReturn(_textField:UITextField)->Bool{
+//                cell.textField.resignFirstResponder()
+//                return true
 //            }
         }
         
@@ -241,6 +247,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             postRef.updateChildValues(commentDictionary)
             
         }
- 
+    
     
 }
